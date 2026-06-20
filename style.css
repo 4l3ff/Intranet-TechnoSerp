@@ -1,0 +1,415 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#0b1220;
+    --sidebar:#08111f;
+    --card:#111827;
+    --card-hover:#182234;
+    --primary:#00c8ff;
+    --primary-dark:#0078ff;
+    --text:#e5e7eb;
+    --text-soft:#9ca3af;
+    --border:#1f2937;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI',sans-serif;
+    overflow:hidden;
+}
+
+/* ===========================
+LAYOUT
+=========================== */
+
+#layout-geral{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    grid-template-rows:80px 1fr;
+
+    grid-template-areas:
+    "menu header"
+    "menu main";
+
+    height:100vh;
+}
+
+/* ===========================
+SIDEBAR
+=========================== */
+
+#sidebar{
+    grid-area:menu;
+    background:var(--sidebar);
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+    flex-direction:column;
+
+    overflow-y:auto;
+}
+
+#banner{
+    padding:25px 20px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    border-bottom:1px solid var(--border);
+}
+
+#banner img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+}
+
+#banner h1{
+    color:white;
+    font-size:22px;
+    font-weight:700;
+}
+
+#menu-lateral{
+    padding:15px;
+}
+
+.itens-navegacao{
+    margin-bottom:8px;
+}
+
+.itens-navegacao a{
+    display:block;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    padding:12px 15px;
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.itens-navegacao a:hover{
+    background:#111827;
+
+    color:var(--primary);
+
+    transform:translateX(5px);
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+header{
+    grid-area:header;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#101827;
+
+    border-bottom:1px solid var(--border);
+}
+
+#barra-busca{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+#busca{
+    width:75%;
+    max-width:900px;
+
+    background:#1a2436;
+
+    border:1px solid #263246;
+
+    color:white;
+
+    padding:14px 20px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+#busca:focus{
+    border-color:var(--primary);
+
+    box-shadow:0 0 15px rgba(0,200,255,.3);
+}
+
+/* ===========================
+MAIN
+=========================== */
+
+main{
+    grid-area:main;
+
+    overflow-y:auto;
+
+    padding:35px;
+}
+
+h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+#subtitulo{
+    color:var(--text-soft);
+
+    margin-bottom:35px;
+
+    font-size:16px;
+}
+
+/* ===========================
+CARDS
+=========================== */
+
+#secao-blocos{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+}
+
+section{
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    overflow:visible;
+
+    transition:.3s;
+}
+
+section:hover{
+    transform:translateY(-5px);
+
+    background:var(--card-hover);
+
+    box-shadow:
+    0 0 20px rgba(0,200,255,.15);
+}
+
+/* ===========================
+CABEÇALHO CARD
+=========================== */
+
+.cabecalho-blocos{
+    padding: 16px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    
+    background:
+    linear-gradient(
+    90deg,
+    var(--primary),
+    var(--primary-dark)
+    );
+}
+
+.cabecalho-blocos h3{
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+}
+
+/* ===========================
+LISTAS
+=========================== */
+
+.lista-visivel{
+    padding:20px;
+}
+
+.lista-visivel li{
+    margin-bottom:12px;
+}
+
+.lista-visivel a,
+.menu-escondido a{
+    color:#d7e3f4;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.lista-visivel a:hover,
+.menu-escondido a:hover{
+    color:var(--primary);
+}
+
+/* ===========================
+BOTÃO VER TUDO
+=========================== */
+
+.dropdown-container{
+    position:relative;
+    padding:0 20px 20px;
+}
+
+.btn-ver{
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+    text-align:right;
+
+    font-weight:600;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.btn-ver:hover{
+    color:white;
+}
+
+/* ===========================
+MENU OCULTO
+=========================== */
+
+.menu-escondido{
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+    left:20px;
+
+    min-width:250px;
+
+    margin-top:10px;
+    padding:15px;
+
+    background:#0d1726;
+
+    border-radius:12px;
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.35);
+
+    z-index:1000;
+}
+
+.menu-escondido.ativo{
+    display:block;
+}
+
+.menu-escondido li{
+    margin-bottom:10px;
+}
+
+section {
+    position: relative;
+    z-index: 1;
+    border-radius: 16px;
+    overflow: visible;
+}
+
+section.card-aberto {
+    z-index: 9999;
+}
+
+/* ===========================
+SCROLL
+=========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0b1220;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#263246;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#00c8ff;
+}
+
+
+
+
+/* ==============================
+RESULTADO BUSCA
+=============================== */
+.resultado-busca {
+    background-color: rgba(77, 163, 255, 0.18);
+    border-left: 4px solid #4da3ff;
+    border-radius: 6px;
+    padding: 1px 3px;
+    transition: all 0.2s ease;
+}
+
+
+/* ===========================
+RESPONSIVO
+=========================== */
+
+@media(max-width:900px){
+
+    #layout-geral{
+        grid-template-columns:1fr;
+
+        grid-template-rows:auto auto 1fr;
+
+        grid-template-areas:
+        "menu"
+        "header"
+        "main";
+    }
+
+    #sidebar{
+        height:auto;
+    }
+
+    #busca{
+        width:95%;
+    }
+
+    #secao-blocos{
+        grid-template-columns:1fr;
+    }
+}

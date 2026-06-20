@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal TechnoSerp</title>
+
+    <link rel="icon" href="images/logotechnoserp.png">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="layout-geral">
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar">
+
+            <div id="banner">
+                <img src="images/logotechnoserp.png" alt="TechnoSerp">
+                <h1>TechnoSerp</h1>
+            </div>
+
+            <nav id="navegacao-sidebar">
+
+                <ul id="menu-lateral">
+
+                    <li class="itens-navegacao">
+                        <a href="https://technoserp16.wixsite.com/technoserp" target="_blank">
+                            🏠 Site TechnoSerp
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://chatgpt.com/" target="_blank">
+                            🤖 ChatGPT
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://my.anydesk.com/" target="_blank">
+                            💻 AnyDesk
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://github.com/" target="_blank">
+                            🌐 GitHub
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://drive.google.com/drive/folders/1K0Q7jA9B8cTGTJ4O68i9Dpq2U-0CwIZS?ths=true" target="_blank">
+                            📁 Clientes
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://onedrive.live.com/" target="_blank">
+                            ☁️ OneDrive
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://outlook.office.com/" target="_blank">
+                            📧 Outlook
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://web.whatsapp.com/" target="_blank">
+                            📞 WhatsApp
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://drive.google.com/drive/folders/1D_fcqe5CVM9SP7HfTb_p8cLvIAK4XXDT?ths=true" target="_blank">
+                            📊 Financeiro
+                        </a>
+                    </li>
+
+                    <li class="itens-navegacao">
+                        <a href="https://drive.google.com/drive/folders/1FDLN5W_lI5HHxOA5WgAPtFThVWSDYo5y?ths=true" target="_blank">
+                            📚 Documentação
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- HEADER -->
+        <header>
+
+            <div id="barra-busca">
+                <input
+                    type="search"
+                    id="busca"
+                    placeholder="Buscar ferramenta, sistema ou cliente..."
+                    onkeyup="buscarLinks()">
+            </div>
+
+        </header>
+
+        <!-- MAIN -->
+        <main>
+
+            <h2>Olá, Técnico!</h2>
+
+            <p id="subtitulo">
+                Bem-vindo ao Portal TechnoSerp
+            </p>
+
+            <div id="secao-blocos">
+
+                <!-- Atendimento -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>📞 Atendimento</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li><a href="https://my.anydesk.com/" target="_blank">AnyDesk</a></li>
+                        <li><a href="https://web.whatsapp.com/" target="_blank">WhatsApp</a></li>
+                        <li><a href="https://chatgpt.com/" target="_blank">ChatGPT</a></li>
+
+                    </ul>
+
+                    <div class="dropdown-container">
+
+                        <button class="btn-ver" onclick="toggleLinks(this)">
+                            Ver Tudo
+                        </button>
+
+                        <div class="menu-escondido">
+
+                            <ul>
+
+                                <li><a href="https://mail.google.com/" target="_blank">Gmail</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Clientes -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>📁 Clientes</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1kliozad5NqsXyHTXbwlnrOhOJwbe0AfS?ths=true" target="_blank">
+                                Contratos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1K0Q7jA9B8cTGTJ4O68i9Dpq2U-0CwIZS?ths=true" target="_blank">
+                                Pasta de Clientes
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <!-- Financeiro -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>📊 Financeiro</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1J1QNGRtFvUEY-KDmUd5a4aJtckReymmY?ths=true" target="_blank">
+                                Boletos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1J1QNGRtFvUEY-KDmUd5a4aJtckReymmY?ths=true" target="_blank">
+                                Notas Fiscais
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <!-- Desenvolvimento -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>🌐 Desenvolvimento e Programação</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
+                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        <li><a href="https://chatgpt.com/" target="_blank">ChatGPT</a></li>
+
+                    </ul>
+
+                    <div class="dropdown-container">
+
+                        <button class="btn-ver" onclick="toggleLinks(this)">
+                            Ver Tudo
+                        </button>
+
+                        <div class="menu-escondido">
+
+                            <ul>
+
+                                <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+                                <li><a href="https://www.postman.com/" target="_blank">Postman</a></li>
+                                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Marketing -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>📣 Marketing</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.tiktok.com/@techno.serp" target="_blank">TikTok</a></li>
+                        <li><a href="https://www.instagram.com/techno.serp/" target="_blank">Instagram</a></li>
+
+                    </ul>
+
+                    <div class="dropdown-container">
+
+                        <button class="btn-ver" onclick="toggleLinks(this)">
+                            Ver Tudo
+                        </button>
+
+                        <div class="menu-escondido">
+
+                            <ul>
+
+                                <li><a href="https://technoserp16.wixsite.com/technoserp/blog" target="_blank">Blog TechnoSerp</a></li>
+
+                                <li><a href="https://linktr.ee/technoserp" target="_blank">Produtos</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Ferramentas -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>🛠 Ferramentas Técnicas</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li><a href="https://my.anydesk.com/" target="_blank">AnyDesk</a></li>
+                        <li><a href="https://rustdesk.com/" target="_blank">RustDesk</a></li>
+                        <li><a href="https://www.dwservice.net/en/home.html" target="_blank">DWService</a></li>
+
+                    </ul>
+
+                    <div class="dropdown-container">
+
+                        <button class="btn-ver" onclick="toggleLinks(this)">
+                            Ver Tudo
+                        </button>
+
+                        <div class="menu-escondido">
+
+                            <ul>
+
+                                <li><a href="https://web.teamviewer.com/" target="_blank">TeamViewer</a></li>
+
+                                <li><a href="https://portableapps.com/" target="_blank">Utilitários</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Sistemas -->
+                <section>
+
+                    <div class="cabecalho-blocos">
+                        <h3>💻 Sistemas e Servidores</h3>
+                    </div>
+
+                    <ul class="lista-visivel">
+
+                        <li><a href="https://www.odoo.com/pt_BR" target="_blank">Odoo 17</a></li>
+                        <li><a href="https://www.sti3.com.br/" target="_blank">STi3</a></li>
+                        <li><a href="https://xmlscanner.oneapp.dev/" target="_blank">XML Scanner</a></li>
+
+                    </ul>
+
+                    <div class="dropdown-container">
+
+                        <button class="btn-ver" onclick="toggleLinks(this)">
+                            Ver Tudo
+                        </button>
+
+                        <div class="menu-escondido">
+
+                            <ul>
+
+                                <li>
+                                    <a href="https://verificador-codigo-de-barras.oneapp.dev/" target="_blank">
+                                        Verificador GTIN / EAN
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="js-principal.js"></script>
+
+</body>
+</html>
