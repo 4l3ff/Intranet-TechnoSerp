@@ -206,4 +206,20 @@ window.addEventListener(
         );
 
     }
+
+    
 );
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".icon").forEach(el => {
+
+        const iconName = el.dataset.icon;
+
+        if (Icons[iconName]) {
+            el.innerHTML = Icons[iconName]();
+        }
+
+    });
+
+});
