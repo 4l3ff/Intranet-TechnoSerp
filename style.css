@@ -234,9 +234,7 @@ CABEÇALHO CARD
 
 .cabecalho-blocos h3{
     color:white;
-
     font-size:17px;
-
     font-weight:600;
 }
 
@@ -383,6 +381,11 @@ RESULTADO BUSCA
     transition: all 0.2s ease;
 }
 
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
 
 /* ===========================
 RESPONSIVO
