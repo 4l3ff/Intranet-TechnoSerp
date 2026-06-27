@@ -94,6 +94,12 @@ function buscarLinks() {
             menu.classList.remove("ativo");
         });
 
+    document // antes de procurar novamente, todos os cards voltam ao estado normal
+        .querySelectorAll("section")
+        .forEach(card => {
+            card.classList.remove("card-aberto");
+        });
+
     links.forEach(link => {
 
         const texto =
@@ -114,10 +120,18 @@ function buscarLinks() {
 
             // Se estiver dentro de um menu oculto, abre o menu
             const menu =
-                link.closest(".menu-escondido");
+                link.closest(".menu-escondido"); 
 
             if (menu) {
-                menu.classList.add("ativo");
+
+                menu.classList.add("ativo"); // Primeiro ele abre o menu
+
+                const card = menu.closest("section"); // Depois procura o card
+
+                if(card){ // Se encontrou o card, adiciona a classe "card-aberto"
+                    card.classList.add("card-aberto"); // Adiciona a classe "card-aberto" ao card
+                }
+
             }
         }
 
