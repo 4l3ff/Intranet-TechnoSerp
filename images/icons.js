@@ -1,18 +1,37 @@
 /*Criador de icones SVG. Cada função retorna um string contendo o código SVG do ícone correspondente.*/
 
-const createIcon = (paths, viewBox = "0 0 24 24") => (size = 24, color = "currentColor") => `
+const createIcon = (
+    paths,
+    viewBox = "0 0 24 24",
+    defaults = {}
+) => (
+    size = 24,
+    options = {}
+) => {
+
+    const config = {
+        color: "currentColor",
+        fill: "none",
+        strokeWidth: 2,
+        linecap: "round",
+        linejoin: "round",
+        ...defaults,
+        ...options
+    };
+
+    return `
 <svg xmlns="http://www.w3.org/2000/svg"
-  width="${size}"
-  height="${size}"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="${color}"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round">
-  ${paths}
-</svg>
-`;
+    width="${size}"
+    height="${size}"
+    viewBox="${viewBox}"
+    fill="${config.fill}"
+    stroke="${config.color}"
+    stroke-width="${config.strokeWidth}"
+    stroke-linecap="${config.linecap}"
+    stroke-linejoin="${config.linejoin}">
+    ${paths}
+</svg>`;
+};
 
 window.Icons = {
 
@@ -32,6 +51,32 @@ window.Icons = {
         <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598" />
         <path d="M3 6v10c0 .888 .772 1.45 2 2" />
         <path d="M3 11c0 .888 .772 1.45 2 2" />
+    `),
+
+    financedashboard: createIcon(`
+        <!-- Vermelho -->
+        <rect x="1" y="12" width="4" height="10" rx="1.2"
+            fill="#EA4335" stroke="none"/>
+        <rect x="6.5" y="7" width="5" height="15" rx="1.2"
+            fill="#FBBC05" stroke="none"/>
+        <rect x="12.5" y="1" width="5" height="21" rx="1.2"
+            fill="#34A853" stroke="none"/>
+        <!-- Seta azul -->
+        <path
+            d="M0 24
+            L7.2 16.8
+            L12.5 21
+            L21 12.5
+            L24 15.5
+            V10
+            H18.5
+            L20.4 11.9
+            L12.5 19.8
+            L7.2 15.7
+            L0 23"
+            fill="#4285F4"
+            stroke-width="3"
+            stroke="#4285F4"/>
     `),
 
     socialmedia: createIcon(`
@@ -77,18 +122,13 @@ window.Icons = {
     `),
 
     customerservice: createIcon(`
-        <path d="M12 3a9 9 0 0 0-9 9v3a3 3 0 0 0 3 3h2v-7H5"/>
-        <path d="M12 3a9 9 0 0 1 9 9v3a3 3 0 0 1-3 3h-2v-7h3"/>
+        <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"/>
+    `),
 
-        <path d="M8 21h4a4 4 0 0 0 4-4v-1"/>
-        <path d="M8 17v-3"/>
-        <path d="M16 17v-3"/>
-
-        <circle cx="12" cy="9" r="3"/>
-        <path d="M7.5 20c1.2-2 2.8-3 4.5-3s3.3 1 4.5 3"/>
-
-        <path d="M19 7h1a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1"/>
-        <path d="M5 7H4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1"/>
+    anydesk: createIcon(`
+        <rect transform="rotate(45)" x="48.79" y="-19.092" width="62.225" height="62.225" fill="#ef443b" stroke-width="1.9365"/>
+        <path transform="rotate(45)" d="m72.125-42.426v12.021h50.205v50.205h12.021v-62.225h-62.225z" fill="#ef443b" stroke-width="1.9365"/>
+    
     `)
 
 };
