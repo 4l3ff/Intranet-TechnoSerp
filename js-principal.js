@@ -100,6 +100,15 @@ function buscarLinks() {
             card.classList.remove("card-aberto");
         });
 
+        document.querySelectorAll("[data-icon]").forEach(el => {
+            const icon = el.dataset.icon;
+
+            if (window.Icons[icon]) {
+                el.innerHTML = window.Icons[icon]();
+            }
+        });
+        
+
     links.forEach(link => {
 
         const texto =
@@ -212,7 +221,7 @@ window.addEventListener(
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.querySelectorAll(".icon").forEach(el => {
+    document.querySelectorAll("[data-icon]").forEach(el => {
 
         const iconName = el.dataset.icon;
 
