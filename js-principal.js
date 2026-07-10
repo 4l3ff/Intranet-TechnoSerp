@@ -1,41 +1,125 @@
 // ===========================
+// ELEMENTOS PRINCIPAIS DA PÁGINA
+// ===========================
+
+// Guarda todos os menus escondidos
+// para evitar ficar procurando no HTML toda hora
+const menus = document.querySelectorAll(".menu-escondido");
+
+// Guarda todos os cards/seções
+const cards = document.querySelectorAll("section");
+
+// Guarda todos os links da página
+const links = document.querySelectorAll("a");
+
+// ===========================
+// FUNÇÃO PARA ABRIR MENU
+// ===========================
+
+// Centraliza toda a lógica de abrir um menu
+// Assim não precisamos repetir esse código
+// em vários lugares
+
+function abrirMenu(menu) {
+
+    // Mostra o menu escondido
+    menu.classList.add("ativo");
+
+
+    // Pega o botão que fica antes do menu
+    const botao = menu.previousElementSibling;
+
+
+    // Altera o texto do botão
+    if (botao) {
+        botao.textContent = "Ver Menos";
+    }
+
+    // Encontra o card onde esse menu pertence
+    const card = menu.closest("section");
+
+    // Adiciona o efeito visual do card aberto
+    if (card) {
+        card.classList.add("card-aberto");
+    }
+
+}
+// ===========================
+// FUNÇÃO PARA FECHAR MENU
+// ===========================
+
+// Centraliza toda a lógica de fechar menu
+
+function fecharMenu(menu) {
+    // Esconde o menu
+    menu.classList.remove("ativo");
+
+    // Recupera o botão relacionado ao menu
+    const botao = menu.previousElementSibling;
+
+    // Volta o texto original
+    if (botao) {
+        botao.textContent = "Ver Tudo";
+    }
+
+    // Recupera o card relacionado
+    const card = menu.closest("section");
+
+
+    // Remove o efeito de card aberto
+    if (card) {
+        card.classList.remove("card-aberto");
+    }
+
+}
+// ===========================
 // ABRIR / FECHAR MENUS
 // ===========================
 
 function toggleLinks(botao) {
 
+    // O menu que pertence ao botão clicado
     const menu = botao.nextElementSibling;
+
+    // O card desse menu
     const card = botao.closest("section");
 
-    document
-        .querySelectorAll(".menu-escondido")
-        .forEach(item => {
+    // Fecha todos os outros menus
+    // para deixar somente um aberto
 
-            if(item !== menu){
-                item.classList.remove("ativo");
-            }
+    menus.forEach(item => {
 
-        });
+        if (item !== menu) {
 
-    document
-        .querySelectorAll("section")
-        .forEach(item => {
+            fecharMenu(item);
 
-            if(item !== card){
-                item.classList.remove("card-aberto");
-            }
+        }
 
-        });
+    });
 
-    menu.classList.toggle("ativo");
+    // Fecha outros cards que possam estar abertos
+
+    cards.forEach(item => {
+
+        if (item !== card) {
+
+            item.classList.remove("card-aberto");
+        }
+    });
+    // Verifica se o menu já está aberto
 
     if(menu.classList.contains("ativo")){
-        card.classList.add("card-aberto");
-    }else{
-        card.classList.remove("card-aberto");
-    }
-}
 
+        // Se estiver aberto, fecha
+        fecharMenu(menu);
+
+    }else{
+
+        // Se estiver fechado, abre
+        abrirMenu(menu);
+    }
+
+}
 // ===========================
 // FECHAR AO CLICAR FORA
 // ===========================
@@ -44,27 +128,25 @@ document.addEventListener(
     "click",
     function(event){
 
+        // Verifica se clicou em algum botão
         const clicouBotao =
             event.target.closest(".btn-ver");
 
+        // Verifica se clicou dentro do menu
         const clicouMenu =
             event.target.closest(".menu-escondido");
+
+        // Se clicou fora dos dois
+        // fecha todos os menus
 
         if(
             !clicouBotao &&
             !clicouMenu
         ){
 
-            document
-            .querySelectorAll(
-                ".menu-escondido"
-            )
-            .forEach(menu => {
+            menus.forEach(menu => {
 
-                menu.classList.remove(
-                    "ativo"
-                );
-
+                fecharMenu(menu);
             });
 
         }
@@ -73,10 +155,10 @@ document.addEventListener(
 );
 
 // ===========================
-// BUSCA
+// BUSCA DE LINKS
 // ===========================
 
-function buscarLinks() {
+function buscarLinks(){
 
     const input =
         document.getElementById("busca");
@@ -84,32 +166,17 @@ function buscarLinks() {
     const filtro =
         input.value.toLowerCase();
 
-    const links =
-        document.querySelectorAll("a");
+    let primeiroResultado = null;
 
-    // Fecha todos os menus primeiro
-    document
-        .querySelectorAll(".menu-escondido")
-        .forEach(menu => {
-            menu.classList.remove("ativo");
-        });
+    menus.forEach(menu=>{
+        fecharMenu(menu);
+    });
 
-    document // antes de procurar novamente, todos os cards voltam ao estado normal
-        .querySelectorAll("section")
-        .forEach(card => {
-            card.classList.remove("card-aberto");
-        });
+    cards.forEach(card=>{
+        card.classList.remove("card-aberto");
+    });
 
-        document.querySelectorAll("[data-icon]").forEach(el => {
-            const icon = el.dataset.icon;
-
-            if (window.Icons[icon]) {
-                el.innerHTML = window.Icons[icon]();
-            }
-        });
-        
-
-    links.forEach(link => {
+    links.forEach(link=>{
 
         const texto =
             link.textContent.toLowerCase();
@@ -118,66 +185,47 @@ function buscarLinks() {
             "resultado-busca"
         );
 
-        if (
+        if(
             filtro.length > 0 &&
             texto.includes(filtro)
-        ) {
+        ){
 
             link.classList.add(
                 "resultado-busca"
             );
 
-            // Se estiver dentro de um menu oculto, abre o menu
             const menu =
-                link.closest(".menu-escondido"); 
+                link.closest(".menu-escondido");
 
-            if (menu) {
-
-                menu.classList.add("ativo"); // Primeiro ele abre o menu
-
-                const card = menu.closest("section"); // Depois procura o card
-
-                if(card){ // Se encontrou o card, adiciona a classe "card-aberto"
-                    card.classList.add("card-aberto"); // Adiciona a classe "card-aberto" ao card
-                }
-
+            if(menu){
+                abrirMenu(menu);
             }
+
+            if(!primeiroResultado){
+                primeiroResultado = link;
+            }
+
         }
 
     });
 
-}
+    if(primeiroResultado){
 
-// ===========================
-// ENTER NA BUSCA
-// ===========================
+        setTimeout(()=>{
 
-document
-.getElementById("busca")
-.addEventListener(
-    "keydown",
-    function(event){
+            primeiroResultado.scrollIntoView({
 
-        if(event.key === "Enter"){
+                behavior:"smooth",
 
-            const encontrados =
-                document.querySelectorAll(
-                    ".resultado-busca"
-                );
+                block:"center"
 
-            if(encontrados.length > 0){
+            });
 
-                encontrados[0].scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
-
-            }
-
-        }
+        },150);
 
     }
-);
+
+}
 
 // ===========================
 // ANIMAÇÃO DOS CARDS
@@ -186,18 +234,18 @@ document
 window.addEventListener(
     "load",
     () => {
-
-        const cards =
-            document.querySelectorAll(
-                "section"
-            );
+        // Usa os cards que já foram carregados
 
         cards.forEach(
             (card,index) => {
 
+                // Estado inicial
                 card.style.opacity = 0;
+
                 card.style.transform =
                     "translateY(20px)";
+
+                // Anima cada card com atraso
 
                 setTimeout(() => {
 
@@ -212,23 +260,37 @@ window.addEventListener(
                 }, index * 120);
 
             }
+
         );
 
     }
 
-    
 );
+// ===========================
+// CARREGAMENTO DOS ÍCONES
+// ===========================
 
-document.addEventListener("DOMContentLoaded", () => {
+// Renderiza os ícones uma única vez
 
-    document.querySelectorAll("[data-icon]").forEach(el => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-        const iconName = el.dataset.icon;
+        document
+        .querySelectorAll("[data-icon]")
+        .forEach(el => {
 
-        if (Icons[iconName]) {
-            el.innerHTML = Icons[iconName]();
-        }
+            const iconName =
+                el.dataset.icon;
 
-    });
+            if(Icons[iconName]){
 
-});
+                el.innerHTML =
+                    Icons[iconName]();
+            }
+
+        });
+
+    }
+
+);
