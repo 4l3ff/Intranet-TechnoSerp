@@ -5,24 +5,26 @@
 </p>
 
 <h3 align="center">
-Central de acesso rápido para sistemas, ferramentas e recursos da TechnoSerp.
+Intranet interna para centralização de sistemas, ferramentas e recursos da TechnoSerp.
 </h3>
 
 ---
 
 ## 📌 Sobre o projeto
 
-O **Portal TechnoSerp** foi desenvolvido com o objetivo de centralizar e organizar os principais acessos utilizados no dia a dia da equipe.
+O **Portal TechnoSerp** é uma intranet interna desenvolvida para centralizar os principais acessos utilizados pela equipe.
 
-A plataforma reúne ferramentas, sistemas, documentos e recursos importantes em um único ambiente, facilitando a localização das informações e aumentando a produtividade dos usuários.
+A plataforma reúne sistemas, ferramentas, documentos e recursos importantes em um único ambiente, facilitando a rotina dos colaboradores e reduzindo o tempo gasto procurando informações e links espalhados em diferentes locais.
+
+O portal foi pensado para ser a página inicial de referência dos computadores da equipe, oferecendo acesso rápido aos recursos essenciais do dia a dia.
 
 ---
 
 ## 🎯 Objetivo
 
-Criar uma interface simples, rápida e organizada para que técnicos e colaboradores encontrem facilmente os recursos necessários para suas atividades.
+Criar uma central de acesso simples, organizada e eficiente, permitindo que técnicos e colaboradores encontrem rapidamente tudo o que precisam para executar suas atividades.
 
-O portal funciona como uma central de atalhos, reduzindo o tempo gasto procurando links e sistemas espalhados em diferentes locais.
+Com o portal configurado como página inicial dos navegadores da equipe, os principais recursos da empresa ficam disponíveis desde o primeiro acesso ao computador.
 
 ---
 
@@ -64,11 +66,18 @@ O portal funciona como uma central de atalhos, reduzindo o tempo gasto procurand
 
 ## 🖥️ Visão do projeto
 
-O Portal TechnoSerp foi pensado para ser uma ferramenta interna prática e eficiente, oferecendo uma experiência semelhante a um dashboard corporativo.
+O **Portal TechnoSerp** funciona como uma intranet corporativa, atuando como um ponto central de navegação para os recursos internos da empresa.
 
-A ideia é transformar diversos acessos utilizados diariamente em uma única central organizada e acessível.
+A ideia é transformar a abertura do navegador em um momento de acesso imediato às ferramentas de trabalho, reunindo em uma única interface:
 
----
+- Sistemas utilizados diariamente;
+- Ferramentas técnicas;
+- Documentações;
+- Recursos administrativos;
+- Canais de comunicação;
+- Acessos importantes da empresa.
+
+Com uma interface organizada e de fácil utilização, o portal melhora a produtividade da equipe e cria uma experiência mais padronizada para todos os usuários.
 
 ## 📈 Evolução do projeto
 
